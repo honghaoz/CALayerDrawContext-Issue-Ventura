@@ -19,16 +19,20 @@ class ViewController: NSViewController {
         }
     }
 
+    private let testLayer = TestLayer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.red.cgColor
 
-        let testLayer = TestLayer()
         testLayer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
 
         view.layer?.addSublayer(testLayer)
+    }
+
+    override func viewDidAppear() {
         testLayer.setNeedsDisplay()
     }
 
@@ -37,7 +41,4 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
 }
-
